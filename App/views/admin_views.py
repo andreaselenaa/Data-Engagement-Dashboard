@@ -8,7 +8,7 @@ admin_views = Blueprint('admin_views', __name__, template_folder='../templates')
 def test():
     return "Admin blueprint works!"
 
-@admin_views.route('/dashboard')
+@admin_views.route('/admin/dashboard')
 @jwt_required()
 def dashboard():
     if current_user.role != 'admin':
@@ -19,7 +19,7 @@ def dashboard():
 
 
 @admin_views.route('/admin/users/create', methods=['POST'])
-@jwt_required
+@jwt_required()
 def create_hr():
     if current_user.role != 'admin':
         return "Access Denied", 403
