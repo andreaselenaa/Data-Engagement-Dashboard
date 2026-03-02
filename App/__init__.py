@@ -27,10 +27,16 @@ def create_app(overrides={}):
     from App.views.auth_views import auth_blueprint
     app.register_blueprint(auth_blueprint)
 
-    from App.views.dashboards import dashboard_views
-    app.register_blueprint(dashboard_views)
+    #from App.views.dashboards import dashboard_views
+    #app.register_blueprint(dashboard_views)
 
     from App.views.admin_views import admin_views
     app.register_blueprint(admin_views)
+
+    from App.views.hr_views import hr_views
+    app.register_blueprint(hr_views)
+
+    from App.views.scorer_views import scorer_views
+    app.register_blueprint(scorer_views)
 
     return app

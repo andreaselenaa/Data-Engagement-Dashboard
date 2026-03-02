@@ -2,6 +2,9 @@ from App.models import HR, Institution
 from App.database import db
 
 
+def get_admin_data():
+    return Institution.query.all()
+
 def create_hr_user(firstname, lastname, username, email, password, institution_id):
     """Create a new HR user"""
     inst = Institution.query.get(institution_id)

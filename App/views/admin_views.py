@@ -13,7 +13,7 @@ def test():
 def dashboard():
     if current_user.role != 'admin':
         return "Access Denied", 403
-    from App.controllers.dashboards import get_admin_data
+    from App.controllers.admin_controller import get_admin_data
     institutions = get_admin_data()
     return render_template('admin/admin.html', institutions=institutions)
 

@@ -1,8 +1,7 @@
-from App.models import User, Institution, Participant, Registration, Result, db
+from App.models import Participant, Registration, Result, Institution
 from App.database import db
 
-def get_admin_data():
-    return Institution.query.all()
+
 
 def get_hr_stats(institution_id):
     total_reg=Participant.query.filter_by(institution_id=institution_id).count()
@@ -18,6 +17,3 @@ def get_hr_stats(institution_id):
         "participants": participants,
         "institution": Institution.query.get(institution_id)
     }
-
-def get_scorer_data():
-    return Result.query.order_by(Result.id.desc()).limit(10).all()
