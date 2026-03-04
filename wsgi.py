@@ -1,4 +1,4 @@
-import click, pytest, sys
+import click, pytest, sys, os
 from flask.cli import with_appcontext, AppGroup
 
 from App.database import db, get_migrate
@@ -6,6 +6,14 @@ from App.models import User
 from App.main import create_app
 from App.controllers import ( create_user, get_all_users_json, get_all_users, initialize )
 
+
+sys.path.insert(0, os.path.dirname(__file__))
+from App import create_app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run()
 
 # This commands file allow you to create convenient CLI commands for testing controllers
 
